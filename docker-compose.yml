@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  database:
+    image: postgres
+    restart: on-failure:5
+    env_file:
+      - .env
+    environment:
+      - POSTGRES_USER=lucid
+      - POSTGRES_PASSWORD=lucid
+      - POSTGRES_DB=beet_farm
+    volumes:
+      - data:/data/db
+  node:
+    build:
+      context: .
+    restart: on-failure:5
+    depends_on:
+      - database
+    volumes:
+      - /app/node_modules
+    env_file:
+      - .env
+    ports:
+      - "3333:3333"
+volumes:
+  data:
