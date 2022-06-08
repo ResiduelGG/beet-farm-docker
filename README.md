@@ -6,7 +6,7 @@ Sample AdonisJS and PostgreSQL app containing generic API endpoints dockerized
 
 - Latest Docker
 
-## Usage
+## Installation
 
 Start up docker container
 
